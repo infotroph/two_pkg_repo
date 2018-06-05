@@ -13,12 +13,8 @@ cache:
     - .coverage
   - packages
 
-r_packages:
-  - devtools
-  - roxygen2
-  - covr
-
-install: true
+install:
+  - make .check/devtools .coverage/covr
 
 script:
   - make check
