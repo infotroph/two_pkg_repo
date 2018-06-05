@@ -1,0 +1,20 @@
+language: r
+
+r:
+  - oldrel
+  - release
+  - devel
+
+sudo: false
+
+cache: 
+  - directories:
+    - .check
+    - .coverage
+  - packages
+
+script:
+  - make check
+
+after_success:
+  - make coverage
