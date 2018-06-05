@@ -30,7 +30,7 @@ covr_R_pkg = Rscript -e "covr::codecov('"$(strip $(1))"')"
 .SECONDEXPANSION:
 
 .check/%: $$(wildcard %/*) | $$(@D)
-	$(call check_R_pkg, $(subst .check/,,$@)) > $@
+	$(call check_R_pkg, $(subst .check/,,$@)) | tee $@
 
 .coverage/%: $$(wildcard %/*) | $$(@D)
-	$(call covr_R_pkg, $(subst .coverage/,,$@)) > $@
+	$(call covr_R_pkg, $(subst .coverage/,,$@)) | tee $@
