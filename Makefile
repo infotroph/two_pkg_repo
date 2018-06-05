@@ -19,6 +19,8 @@ covr_R_pkg = Rscript -e "covr::codecov('"$(strip $(1))"')"
 
 .check/devtools:
 	time Rscript -e "if(!require('devtools', quietly = TRUE)) install.packages('devtools', repos = 'http://cran.rstudio.com')" > $@	
+.check/roxygen2:
+	time Rscript -e "if(!require('roxygen2', quietly = TRUE)) install.packages('roxygen2', repos = 'http://cran.rstudio.com')" > $@
 .coverage/covr:
 	time Rscript -e "if(!require('covr', quietly = TRUE)) install.packages('covr', repos = 'http://cran.rstudio.com')" > $@
 

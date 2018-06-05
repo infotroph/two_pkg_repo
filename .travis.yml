@@ -14,7 +14,7 @@ cache:
   - packages
 
 install:
-  - make .check/devtools .coverage/covr
+  - make .check/devtools .check/roxygen2 .coverage/covr
 
 script:
   - make check
