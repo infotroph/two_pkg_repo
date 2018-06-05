@@ -13,6 +13,9 @@ cache:
     - .coverage
   - packages
 
+install:
+  - make .check/devtools .coverage/covr
+
 script:
   - make check
 
