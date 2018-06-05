@@ -10,7 +10,9 @@ coverage: $(PKG_COVR) | .coverage/covr
 clean:
 	rm -rf .check .coverage
 
-check_R_pkg = Rscript -e "devtools::check('"$(strip $(1))"')"
+check_R_pkg = Rscript -e " \
+	devtools::install_deps('"$(strip $(1))"', dependencies = TRUE); \
+	devtools::check('"$(strip $(1))"')"
 covr_R_pkg = Rscript -e "covr::codecov('"$(strip $(1))"')"
 # covr_R_pkg = Rscript -e "covr::package_coverage('"$(strip $(1))"')"
 
